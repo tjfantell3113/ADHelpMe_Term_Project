@@ -2,6 +2,9 @@
 
 This is my term project for a cloud computing course. The website is by no means finished or perfect given the time restraints. The purpose of the assignment was to plan out, develop, then deploy a web app serving a real world purpose. The objective of my web app is to raise awareness about ADHD and provide an easy place to find information about ADHD. Due to the nature of ADHD, many adults go through their lives with out ever learning that they are affected by ADHD. In addition, the information and research focusing on ADHD is still evolving making finding good information difficult. My hope is to make finding that information and deciding whether to go through the diagnosis process easier for anyone who believes they or a loved one may have ADHD.
 
+# Technologies Used
+The project was developed in WebStrom. The backend uses ExpressJS to serve the files and MongoDB to store data. The frontend uses Angular with a few supporting UI libraries.
+
 # Current Features
 Currently in the bare bones web app the following is offered:
 - A login page for user authentication.
