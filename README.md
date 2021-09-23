@@ -21,6 +21,7 @@ Informational Page:
 - Beyond the above, I am hesitant to add a forum feature to allow users to talk about ADHD. In addition to it being hard to find information about ADHD, there is also a lot of misinformation.
 
 Tools page:
+
 The third section I planned was a tools section for helping manage ADHD symptoms. Here is a list of tools I planned for this section.
 - A time management tool to plan out work and break periods using a timer. Users would be allowed to create presets and plans. A preset would be a work and break time period pair, and a plan would be a combination of those presets.
 - A calender merged with task and time managment tools. For task management, users would be allowed to create tasks. Each task would include a ranking of importance, a time to start the task, and a time that the task must be finished by. Using the rankings, start time, and finish time, a todo list will be generated for the current day with the most important tasks that have the closest deadlines at the top. A difficulty value could also be added to provide more options to filter the todo list. The calendar would use the finish time to create lists of tasks in each day window.
