@@ -1,0 +1,72 @@
+.container {
+  background-image: url('../../../assets/img/vyvanse.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.quiz-start-title {
+  grid-area: quizTitle;
+}
+
+.quiz-start-line1 {
+  grid-area: line1;
+}
+
+.quiz-start-desc {
+  grid-area: desc;
+}
+
+.quiz-start-info {
+  grid-area: startInfo;
+}
+
+.quiz-start-btn {
+  grid-area: startBtn;
+}
+
+.quiz-start-page {
+  margin: 50px;
+  diplay: grid;
+  align-items: center;
+  grid-template:
+    "quizTitle"
+    "line1"
+    "desc"
+    "startInfo"
+    "startBtn";
+}
+
+.question-control {
+  height: 100%;
+}
+
+.quiz-title {
+  grid-area: quizTitle;
+}
+
+.quiz-info {
+  grid-area: questionsInfo;
+}
+
+.quiz-question {
+  grid-area: question;
+}
+
+.quiz-navigation {
+  grid-area: navButtons;
+}
+
+.quiz-nav-button {
+  margin: 10px;
+}
+
+.quiz-page-layout {
+  diplay: grid;
+  height: 90vh;
+  grid-template:
+    "quizTitle"
+    "questionsInfo"
+    "question"
+    "navButtons";
+}

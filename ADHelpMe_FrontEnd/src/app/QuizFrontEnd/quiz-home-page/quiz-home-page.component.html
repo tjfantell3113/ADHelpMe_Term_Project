@@ -1,0 +1,59 @@
+<div
+  class="container"
+  [style.height.px]="screenHeight"
+>
+  <mat-card class="quiz-home-title-card">
+    <mat-card class="quiz-home-title">Welcome to the Quiz Zone!</mat-card>
+    <mat-card class="quiz-home-desc">
+      When it comes to figuring out whether you have ADHD it can be a difficult process. That's why we have provided
+      some screening quizzes to help you figure out whether you should start the process and make a doctors appointment.
+      In addition, try out some of the community made quizzes, which vary from screenings, figuring out what type of ADHD
+      you have, and even some fun quizzes meant for entertainment.
+    </mat-card>
+  </mat-card>
+  <div class="quiz-home-layout">
+    <mat-card class="new-quiz-title quiz-option-title">
+      <span>Click this button to find new quizzes to take!</span>
+    </mat-card>
+    <section class="new-quiz-area quiz-option-but">
+      <button
+        mat-raised-button
+        class="button"
+        color="primary"
+        (click)="goToNewQuizzes()"
+      >
+        Find A Quiz To Take
+      </button>
+    </section>
+
+    <mat-card class="create-quiz-title quiz-option-title">
+      <span>Click this button to create a new quiz for the community!</span>
+    </mat-card>
+    <section class="create-quiz-area quiz-option-but">
+      <button
+        mat-raised-button
+        class="button"
+        color="primary"
+        (click)="goToCreateQuizzes()"
+      >
+        Create A New Quiz
+      </button>
+    </section>
+
+    <mat-card class="old-quiz-title quiz-option-title">
+      <span>Click this button to see quizzes you have previously taken!</span>
+    </mat-card>
+    <section class="old-quiz-area quiz-option-but">
+      <button
+        mat-raised-button
+        class="button"
+        color="primary"
+        (click)="goToOldQuizzes()"
+      >
+        Review Taken Quizzes
+      </button>
+    </section>
+
+  </div>
+</div>
+<router-outlet></router-outlet>

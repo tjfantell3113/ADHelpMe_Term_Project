@@ -1,0 +1,149 @@
+.container {
+  background-image: url('../../../assets/img/vyvanse.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.quiz-home-title-card {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.0);
+}
+
+.quiz-home-title {
+  font-family: "OpenSans";
+  font-size: 48px;
+  font-weight: bolder;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
+  width: 650px;
+  background-color: rgba(236, 236, 236, 0.7);
+}
+
+.quiz-home-desc {
+  font-family: "OpenSans";
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  background-color: rgba(236, 236, 236, 0.7);
+}
+
+.new-quiz-title {
+  grid-area: newQuizzes;
+}
+
+.quiz-option-title {
+  font-family: "OpenSans";
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-bottom: 3vh;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.quiz-option-but {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.new-quiz-area {
+  grid-area: newBut;
+}
+
+.old-quiz-title {
+  grid-area: oldQuizzes;
+}
+
+.old-quiz-area {
+  grid-area: oldBut;
+}
+
+.create-quiz-title {
+  grid-area: createQuizzes;
+}
+
+.create-quiz-area {
+  grid-area: createBut;
+}
+
+.button {
+  font-family: "OpenSans" !important;
+  font-size: 18px !important;
+  width: 300px !important;
+  height: 75px !important;
+}
+
+.quiz-home-layout {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-areas:
+    "newQuizzes createQuizzes oldQuizzes"
+    "newBut createBut oldBut";
+}
+
+.quiz-title {
+  grid-area: quizName;
+}
+
+.quiz-author {
+  grid-area: quizAuthor;
+}
+
+.quiz-num-questions {
+  grid-area: numQ;
+}
+
+.quiz-num-description {
+  grid-area: desc;
+}
+
+.quiz-take-button {
+  grid-area: take;
+}
+
+.new-quiz-list-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "quizName quizAuthor numQ take"
+    "desc desc desc desc";
+}
+
+.quiz-num-correct {
+  grid-area: numQCorrect;
+}
+
+.quiz-grade {
+  grid-area: grade;
+}
+
+.quiz-result {
+  grid-area: result;
+}
+
+.quiz-review-button {
+  grid-area: review;
+}
+
+.taken-quiz-list-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "quizName quizAuthor review"
+    "desc desc desc"
+    "numQCorrect numQCorrect numQCorrect"
+    "grade grade grade"
+    "result result result";
+}

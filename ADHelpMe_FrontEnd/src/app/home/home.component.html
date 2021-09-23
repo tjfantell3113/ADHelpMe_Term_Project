@@ -1,0 +1,53 @@
+<div
+  class="container"
+  [style.height.px]="screenHeight"
+>
+  <mat-card class="set-mat-card-opacity">
+    <mat-card-title
+      style="font-size: 32px;
+             width: 350px;
+             margin: auto;"
+    >
+      Welcome to ADHelpMe!
+    </mat-card-title>
+    <mat-card-content>
+      <div
+        style="font-size: 18px;
+               width: 275px;
+               margin: auto;"
+      >
+        Check out what to expect below!
+      </div>
+      <mat-divider></mat-divider>
+      <div class="feature-area">
+        <mat-card class="info-area">
+          <mat-card-title>Info</mat-card-title>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            The info section of the website is currently under construction, come back and see it later!
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="quiz-area">
+          <mat-card-title>Quizzes</mat-card-title>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            This is where you can take quizzes, create quizzes for the community, and review previously taken quizzes.
+            This should put you on the right track to see if you really have ADHD!
+          </mat-card-content>
+          <mat-action-list>
+            <button class="center-button" mat-raised-button color="primary" routerLink="/quizzes"> Go to Quizzes! </button>
+          </mat-action-list>
+        </mat-card>
+        <mat-card class="tool-area">
+          <mat-card-title>Tools</mat-card-title>
+          <mat-divider></mat-divider>
+          <mat-card-content>
+            The tool section of the website is currently under construction, come back and see it later!
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<router-outlet></router-outlet>

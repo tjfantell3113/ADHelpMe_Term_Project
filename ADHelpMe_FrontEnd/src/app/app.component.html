@@ -1,0 +1,12 @@
+<mat-toolbar *ngIf="isUser">
+  <igx-avatar initials={{userInitials}} [roundShape]="true" size="small"></igx-avatar>
+  <button mat-button routerLink="/">Home</button>
+  <!--  TODO: add sub menu with quizzes and old quizzes for logged in users-->
+  <button mat-button routerLink="/quizzes" *ngIf="isUser || isAdmin">Quizzes</button>
+  <button mat-button routerLink="/admin" *ngIf="isAdmin">Users</button>
+  <button mat-button routerLink="/moderate-quizzes" *ngIf="isAdmin">Moderate Quizzes</button>
+  <button mat-button (click)="logout()">Logout </button>
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>

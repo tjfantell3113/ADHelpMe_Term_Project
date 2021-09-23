@@ -1,0 +1,55 @@
+<div
+  class="container"
+  [style.height.px]="screenHeight"
+>
+  <mat-card class="mat-card-set-opacity">
+    <mat-card-title> Quiz Moderator </mat-card-title>
+    <mat-card-content class="search-area">
+      <mat-form-field class="form-control title-card-search-bar">
+        <input
+          matInput
+          class="form-control"
+          placeholder="Seach for quizzes using the author or quiz name."
+          [(ngModel)]="filterString"
+        >
+        <mat-hint>
+          <mat-hint>Enter author names or quiz names separated by commas, then click search. Ex: author, quiz name, author2</mat-hint>
+        </mat-hint>
+      </mat-form-field>
+      <button
+        class="title-card-search-button"
+        mat-raised-button
+        color="primary"
+        (click)="filterQuizzes()"
+      >
+        Search
+      </button>
+    </mat-card-content>
+  </mat-card>
+  <mat-list role="list" class="new-quiz-area">
+    <mat-divider></mat-divider>
+    <mat-list-item
+      role="listitem"
+      *ngFor="let quiz of quizzes"
+      style="height: 100px;"
+    >
+      <mat-divider></mat-divider>
+      <mat-card class="new-quiz-list-item mat-card-set-opacity">
+        <div matLine class="quiz-title">Title: {{quiz.quizName}}</div>
+        <div matLine class="quiz-author">Author: {{quiz.author}}</div>
+        <div matLine class="quiz-num-questions">Number of Questions: {{quiz.questions.length}}</div>
+        <div matLine class="quiz-num-description">Description: {{quiz.description}}</div>
+        <button
+          matLine
+          mat-raised-button
+          color="accent"
+          class="quiz-take-button"
+          (click)="deleteQuiz(quiz.id)"
+        >
+          Delete Quiz
+        </button>
+      </mat-card>
+    </mat-list-item>
+  </mat-list>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,82 @@
+<div>
+  <mat-sidenav-container
+    class="container"
+    [style.height.px]="screenHeight"
+  >
+    <mat-sidenav *ngIf="this.quizStarted" [opened]="this.quizStarted" mode="side" class="question-control">
+      <section *ngFor="let question of quiz.questions; let i = index">
+        <button
+          mat-button
+          (click)="goToQuestion(i + 1)"
+        >
+          Question {{i + 1}}
+        </button>
+      </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- TODO: make start page prettier -->
+      <mat-card *ngIf="!this.quizStarted && this.quizLoaded" class="quiz-start-page">
+          <h4 class="quiz-start-title">{{this.quiz.quizName}}</h4>
+          <p class="quiz-start-line1">
+            You are about to take the quiz, "{{this.quiz.quizName}}"!
+            There are {{this.quiz.questions.length}} questions total.
+          </p>
+          <p class="quiz-start-desc">Author's Description: {{this.quiz.description}}</p>
+          <p class="quiz-start-info">Click begin to get started!</p>
+          <button
+            mat-raised-button
+            class="quiz-start-btn"
+            color="primary"
+            (click)="begin()"
+          >
+            Begin Quiz
+          </button>
+      </mat-card>
+
+      <mat-card *ngIf="this.quizStarted" class="quiz-page-layout">
+        <h4 class="quiz-title">Quiz: {{this.quiz.quizName}}</h4>
+        <div class="quiz-info">
+          <p>Question {{this.currentQuestionNumber}} of {{this.totalQuestions}}</p>
+        </div>
+        <div class="quiz-question">
+          <app-question
+            [question] = this.currentQuestion
+            (answerEmitter)="saveQuestion($event)"
+          >
+          </app-question>
+        </div>
+        <div class="quiz-navigation">
+          <button
+            mat-raised-button
+            [disabled]="this.currentQuestionNumber === 1"
+            class="quiz-nav-button"
+            color="primary"
+            (click)="getPreviousQuestion()"
+          >
+            Previous
+          </button>
+          <button
+            mat-raised-button
+            [disabled]="this.currentQuestionNumber === this.quiz.questions.length"
+            class="quiz-nav-button"
+            color="primary"
+            (click)="getNextQuestion()"
+          >
+            Next
+          </button>
+          <!-- TODO: add tracking of how many questions are answered and use that instead -->
+          <button
+            mat-raised-button
+            [disabled]="this.currentQuestionNumber !== this.quiz.questions.length"
+            class="quiz-nav-button"
+            color="accent"
+            (click)="submit()"
+          >
+            Submit
+          </button>
+        </div>
+      </mat-card>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

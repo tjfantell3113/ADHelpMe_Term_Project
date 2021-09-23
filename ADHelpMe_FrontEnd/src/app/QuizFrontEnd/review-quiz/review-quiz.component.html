@@ -1,0 +1,91 @@
+<div>
+  <mat-sidenav-container
+    class="container"
+    [style.height.px]="screenHeight"
+  >
+    <mat-sidenav *ngIf="this.quizStarted" [opened]="this.quizStarted" mode="side" class="question-control">
+      <section *ngFor="let question of quiz.questions; let i = index">
+        <button
+          mat-button
+          (click)="goToQuestion(i + 1)"
+        >
+          Question {{i + 1}}
+        </button>
+      </section>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <!-- TODO: make start page prettier -->
+      <mat-card *ngIf="!this.quizStarted && this.quizLoaded" class="quiz-start-page">
+        <h4 class="quiz-start-title">Quiz: {{this.quiz.quizName}}</h4>
+        <p class="quiz-start-line1">
+          You are about to review the quiz, "{{this.quiz.quizName}}"!
+          There were {{this.quiz.questions.length}} questions total.
+          You got {{this.quiz.numCorrect}} questions correct out of {{this.quiz.numQuestions}} questions.
+        </p>
+        <p class="quiz-start-desc">Author's Description: {{this.quiz.description}}</p>
+        <p class="quiz-start-info">Click review to get start reviewing!</p>
+        <button
+          mat-raised-button
+          class="quiz-start-btn"
+          color="primary"
+          (click)="begin()"
+        >
+          Review Quiz
+        </button>
+      </mat-card>
+
+      <mat-card *ngIf="this.quizStarted" class="quiz-page-layout">
+        <h4 class="quiz-title">{{this.quiz.quizName}}</h4>
+        <div class="quiz-info">
+          <p>Question {{this.currentQuestionNumber}} of {{this.totalQuestions}}</p>
+        </div>
+        <div class="quiz-question">
+          <app-question
+            [question] = this.currentQuestion
+          >
+          </app-question>
+          <mat-card>
+            <mat-card-title> Review Info: </mat-card-title>
+            <mat-card-content>
+              <div *ngIf="this.currentQuestion.answer.correctAnswer === this.currentQuestion.answer.userAnswer">
+                You got this question correct. Good job!
+              </div>
+              <div *ngIf="this.currentQuestion.answer.correctAnswer !== this.currentQuestion.answer.userAnswer">
+                You got this question wrong. The correct answer was {{this.currentQuestion.answer.correctAnswer}}
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <div class="quiz-navigation">
+          <button
+            mat-raised-button
+            [disabled]="this.currentQuestionNumber === 1"
+            class="quiz-nav-button"
+            color="primary"
+            (click)="getPreviousQuestion()"
+          >
+            Previous
+          </button>
+          <button
+            mat-raised-button
+            [disabled]="this.currentQuestionNumber === this.quiz.questions.length"
+            class="quiz-nav-button"
+            color="primary"
+            (click)="getNextQuestion()"
+          >
+            Next
+          </button>
+          <button
+            mat-raised-button
+            class="quiz-nav-button"
+            color="accent"
+            (click)="done()"
+          >
+            Finish Review
+          </button>
+        </div>
+      </mat-card>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

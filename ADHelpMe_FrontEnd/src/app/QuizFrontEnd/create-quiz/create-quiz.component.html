@@ -1,0 +1,90 @@
+<div
+  class="container"
+  [style.height.px]="screenHeight"
+>
+  <form [formGroup]="quizForm">
+    <mat-card class="create-quiz">
+      <mat-card-header>
+        <mat-card-title> Create a New Quiz </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="form-group">
+          <mat-form-field
+            style="width:95vw"
+          >
+            <input
+              matInput
+              placeholder="Quiz Name"
+              type="text"
+              formControlName="quizName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.quizName.errors }"
+            >
+            <mat-hint *ngIf="submitted && f.quizName.errors" >
+              <mat-hint *ngIf="f.quizName.errors.required">Quiz Name is required</mat-hint>
+              <mat-hint *ngIf="f.quizName.errors.pattern">Quiz Name is using illegal characters.</mat-hint>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field
+            style="width:95vw"
+          >
+            <textarea
+              matInput
+              placeholder="Quiz Description"
+              type="text"
+              formControlName="quizDescription"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.quizDescription.errors }"
+            > </textarea>
+            <mat-hint *ngIf="submitted && f.quizDescription.errors" >
+              <mat-hint *ngIf="f.quizDescription.errors.required">Quiz Description is required</mat-hint>
+              <mat-hint *ngIf="f.quizDescription.errors.pattern">Quiz Description is using illegal characters.</mat-hint>
+            </mat-hint>
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="loading"
+          (click)="addNewQuestion()"
+        >
+          Add New Question
+        </button>
+        <mat-hint *ngIf="submitted && quiz.questions.length === 0" style="margin-left: 20px;">
+          <mat-hint>You must add at least one question before submitting quiz.</mat-hint>
+        </mat-hint>
+
+        <mat-list role="list" class="question-list">
+          <mat-divider></mat-divider>
+          <mat-list-item
+            role="listitem"
+            *ngFor="let question of quiz.questions; let i = index"
+          >
+            <div matLine class="question-num">Question {{i + 1}} info</div>
+            <div matLine class="question-title">Current title: {{question.title}}</div>
+            <div matLine class="question-desc">Current description: {{question.subText}}</div>
+            <div matLine class="question-type" *ngIf="question.type == 0">Question type: Multiple Choice</div>
+            <div matLine class="question-answer">Correct answer: {{question.answer.correctAnswer}}</div>
+            <section matLine>
+              <button class="question-edit-but" mat-raised-button color="primary" (click)="editQuestion(i)"> Edit </button>
+              <button class="question-delete-but" mat-raised-button color="accent" (click)="deleteQuestion(i)"> Delete </button>
+            </section>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [disabled]="loading" (click)="submitQuiz()">Save New Quiz</button>
+        <button mat-raised-button  color="accent"  routerLink="/quizzes" >Cancel</button>
+        <mat-spinner  *ngIf="loading" [diameter]="30"></mat-spinner>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+<router-outlet></router-outlet>

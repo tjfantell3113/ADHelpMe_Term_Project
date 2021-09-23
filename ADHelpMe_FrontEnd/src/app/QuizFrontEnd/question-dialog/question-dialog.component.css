@@ -1,0 +1,95 @@
+.radio-group {
+  display: inline-flex;
+  flex-direction: column;
+  width: 70vw;
+}
+
+.form-control {
+  width: 100% !important;
+}
+
+.builder-title {
+  grid-area: title;
+  font-family: "OpenSans" !important;
+  font-size: 24px !important;
+}
+
+.builder-set-title {
+  grid-area: setTitle;
+  width: 100% !important;
+}
+
+.builder-set-desc {
+  grid-area: setDescription;
+  width: 100% !important;
+}
+
+.builder-set-type {
+  grid-area: setType;
+}
+
+.builder-set-answer {
+  grid-area: answerBuilder;
+}
+
+.builder-action-buttons {
+  grid-area: actionButtons;
+}
+
+.builder-container {
+  display: grid;
+  width: 75vw;
+  grid-template-columns: 100% !important;
+  grid-template:
+    "title"
+    "setTitle"
+    "setDescription"
+    "setType"
+    "answerBuilder"
+    "actionButtons";
+}
+
+.mc-new-name {
+  grid-area: newName;
+}
+
+.mc-add-but {
+  grid-area: addBut;
+}
+
+.mc-title {
+  grid-area: ansTitle;
+}
+
+.mc-answers {
+  grid-area: answers;
+}
+
+.mc-answer-builder-container {
+  display: grid;
+  margin-top: 10px;
+  width: 75vw;
+  grid-template-columns: 75% 25% !important;
+  grid-template:
+    "newName addBut"
+    "ansTitle ansTitle"
+    "answers answers";
+}
+
+.mc-radio-but {
+  grid-area: radioBut;
+  align-self: center !important;
+}
+
+.mc-del-but {
+  grid-area: delBut;
+}
+
+.mc-answer-list-item {
+  display: grid;
+  width: 70vw !important;
+  grid-template-columns: 80% 20% !important;
+  grid-template: "radioBut delBut";
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

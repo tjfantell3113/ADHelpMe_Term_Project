@@ -1,0 +1,22 @@
+<mat-card>
+  <h5 *ngIf="this.question.title">{{this.question.title}}</h5>
+  <div *ngIf="this.question.subText">{{this.question.subText}}</div>
+  <div
+    *ngIf="this.question.type === 0"
+  >
+    <mat-radio-group
+      class="radio-group"
+      [disabled]="!enabled"
+      [(ngModel)]="this.question.answer.userAnswer"
+      (change)="saveQuestion(this.question.answer.userAnswer)"
+    >
+      <mat-radio-button
+        *ngFor="let choice of this.question.answer.choices"
+        [value]="choice"
+        color="primary"
+      >
+        {{choice}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</mat-card>

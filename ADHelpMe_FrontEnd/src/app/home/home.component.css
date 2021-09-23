@@ -1,0 +1,43 @@
+.container {
+  background-image: url('../../assets/img/vyvanse.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  padding-top: 5vh !important;
+}
+
+.center-button {
+  margin: auto;
+}
+
+.set-mat-card-opacity {
+  padding: 20px !important;
+  width: 90vw;
+  margin: auto;
+  background-color: rgba(236, 236, 236, 0.7);
+}
+
+.info-area {
+  grid-area: info;
+  background-color: rgba(236, 236, 236, 0.0);
+}
+
+.quiz-area {
+  grid-area: quizzes;
+  background-color: rgba(236, 236, 236, 0.0);
+}
+
+.tool-area {
+  grid-area: tools;
+  background-color: rgba(236, 236, 236, 0.0);
+}
+
+.feature-area {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 30% 3% 30% 3% 30% !important;
+  grid-template:
+    "info . quizzes . tools";
+}
+
+

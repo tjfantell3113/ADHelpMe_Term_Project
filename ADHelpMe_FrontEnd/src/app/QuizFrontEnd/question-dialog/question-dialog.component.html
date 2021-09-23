@@ -1,0 +1,116 @@
+<div class="builder-container">
+  <span class="builder-title" mat-dialog-title> {{questionBuilderTitle}} </span>
+  <mat-divider></mat-divider>
+
+  <mat-dialog-content>
+    <section class="builder-set-title" [formGroup]="form">
+      <mat-form-field class="form-control">
+        <input
+          matInput
+          class="form-control"
+          placeholder="Question Title"
+          formControlName="title"
+        >
+        <mat-hint *ngIf="submitted && f.title.errors" >
+          <mat-hint *ngIf="f.title.errors.required">Question name is required</mat-hint>
+        </mat-hint>
+      </mat-form-field>
+    </section>
+
+    <section class="builder-set-desc" [formGroup]="form">
+      <mat-form-field class="form-control">
+        <textarea
+          matInput
+          class="form-control"
+          placeholder="Question Description"
+          formControlName="description"
+        ></textarea>
+        <mat-hint *ngIf="submitted && f.description.errors" >
+          <mat-hint *ngIf="f.description.errors.required">Question description is required</mat-hint>
+        </mat-hint>
+      </mat-form-field>
+    </section>
+
+    <section class="builder-set-type" [formGroup]="form">
+      <mat-form-field>
+        <mat-select
+          placeholder="Select Question Type"
+          formControlName="type"
+        >
+          <mat-option
+            *ngFor="let qType of questionTypes" [value]="qType.value"
+          >
+            {{qType.text}}
+          </mat-option>
+        </mat-select>
+        <mat-hint *ngIf="submitted && f.type.errors" >
+          <mat-hint *ngIf="f.type.errors.required">Question type is required</mat-hint>
+        </mat-hint>
+      </mat-form-field>
+    </section>
+
+    <section class="builder-set-answer">
+      <mat-divider></mat-divider>
+      <div class="mc-answer-builder-container" *ngIf="form.value.type == 0">
+        <section class="mc-new-name">
+          <mat-form-field class="form-control">
+            <input
+              matInput
+              class="form-control"
+              placeholder="New Answer Name"
+              [(ngModel)]="newAnswer"
+            >
+            <mat-hint>
+              <mat-hint>Enter a unique answer name, then click Add Answer</mat-hint>
+            </mat-hint>
+          </mat-form-field>
+        </section>
+        <section class="mc-add-but">
+          <button
+            class="mat-raised-button mat-primary"
+            (click)="addMCAnswer()"
+          >
+            Add Answer
+          </button>
+        </section>
+        <section class="mc-title">
+          <div> Multiple Choice Answers: </div>
+          <mat-hint>
+            <mat-hint> Select the correct answer using the radio buttons </mat-hint>
+          </mat-hint>
+        </section>
+
+        <section class="mc-answers">
+          <mat-radio-group
+            class="radio-group"
+            *ngIf="answerReady"
+            [(ngModel)]="answer.correctAnswer"
+            (change)="setCorrectMCAnswer(answer.correctAnswer)"
+          >
+            <mat-divider></mat-divider>
+            <section
+              class="mc-answer-list-item"
+              *ngFor="let choice of answer.choices; let i = index"
+            >
+              <mat-radio-button
+                class="mc-radio-but"
+                [value]="choice"
+                color="primary"
+              >
+                {{choice}}
+              </mat-radio-button>
+              <button class="mat-raised-button mat-primary mc-del-but"(click)="deleteMCAnswer(i)">Delete Answer</button>
+              <mat-divider></mat-divider>
+            </section>
+          </mat-radio-group>
+        </section>
+      </div>
+    </section>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="builder-action-buttons">
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button class="mat-raised-button mat-accent"(click)="close()">Close</button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,77 @@
+.container {
+  background-image: url('../../../assets/img/vyvanse.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.mat-card-set-opacity {
+  background-color: rgba(236, 236, 236, 0.7) !important;
+}
+
+.form-control {
+  width: 100% !important;
+}
+
+.title-card-search-bar {
+  grid-area: searchBar;
+}
+
+.title-card-search-button {
+  grid-area: searchBut;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px !important;
+  height: 40px !important;
+}
+
+.search-area {
+  display: grid;
+  grid-template-columns: 80% 20% !important;
+  grid-template:
+    "searchBar searchBut";
+}
+
+.quiz-title {
+  grid-area: quizName;
+}
+
+.quiz-author {
+  grid-area: quizAuthor;
+}
+
+.quiz-review-button {
+  grid-area: review;
+}
+
+.quiz-delete-button {
+  grid-area: delete;
+}
+
+.quiz-num-description {
+  grid-area: desc;
+}
+
+.quiz-num-correct {
+  grid-area: numQCorrect;
+}
+
+.quiz-grade {
+  grid-area: grade;
+}
+
+.quiz-result {
+  grid-area: result;
+}
+
+.taken-quiz-list-item {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "quizName quizAuthor review"
+    "numQCorrect numQCorrect delete"
+    "desc desc desc"
+    "grade grade grade"
+    "result result result";
+}

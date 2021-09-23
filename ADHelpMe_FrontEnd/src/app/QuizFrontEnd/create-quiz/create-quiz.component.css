@@ -1,0 +1,60 @@
+.container {
+  background-image: url('../../../assets/img/vyvanse.jpg') !important;
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+.form-control {
+  width: 100% !important;
+}
+
+.question-num{
+  gird-area: questionNum;
+  font-family: "OpenSans" !important;
+  font-size: 18px !important;
+}
+
+.question-title{
+  gird-area: questionTitle;
+}
+
+.question-desc{
+  gird-area: questionDesc;
+}
+
+.question-type{
+  gird-area: questionType;
+}
+
+.question-answer{
+  gird-area: questionAnswer;
+}
+
+.question-edit-but {
+  gird-area: editButton;
+  margin-right: 20px;
+}
+
+.question-delete-but {
+  gird-area: delButton;
+}
+
+.question {
+  display: grid;
+  grid-template-areas:
+    "questionNum questionNum"
+    "questionTitle questionTitle"
+    "questionDesc questionDesc"
+    "questionType questionType"
+    "questionAnswer questionAnswer"
+    "editButton delButton";
+}
+
+.question-list {
+}
+
+.create-quiz {
+  background-color: rgba(236, 236, 236, 0.7);
+}
+
